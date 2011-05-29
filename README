@@ -5,3 +5,15 @@ makefile - build with Makefile
 cmake    - build with CMake
 
 assuming Muduo is installed in $HOME/build/debug-install
+
+1) build with CMake
+mkdir build
+cd build
+cmake ../cmake
+make
+# echo binary is in ./bin/
+
+2) build with GNU make
+cd makefile
+make
+# echo binary is in ./
