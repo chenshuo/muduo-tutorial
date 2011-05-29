@@ -1,0 +1,7 @@
+Examples of Muduo network library
+
+src      - source file
+makefile - build with Makefile
+cmake    - build with CMake
+
+assuming Muduo is installed in $HOME/build/debug-install
