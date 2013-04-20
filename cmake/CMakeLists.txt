@@ -58,6 +58,6 @@ include_directories(${PROJECT_SOURCE_DIR})
 add_executable(echo ../src/echo.cc)
 target_link_libraries(echo ${muduo_net})
 target_link_libraries(echo ${muduo_base})
-target_link_libraries(echo pthread)
+target_link_libraries(echo pthread rt)
 
 

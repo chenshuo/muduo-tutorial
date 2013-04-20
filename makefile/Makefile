@@ -11,7 +11,7 @@ CXXFLAGS = -g -O0 -Wall -Wextra -Werror \
 	   -march=native -rdynamic \
 	   -I$(MUDUO_INCLUDE)
 
-LDFLAGS = -L$(MUDUO_LIBRARY) -lmuduo_net -lmuduo_base -lpthread
+LDFLAGS = -L$(MUDUO_LIBRARY) -lmuduo_net -lmuduo_base -lpthread -lrt
 
 all: echo
 clean:
