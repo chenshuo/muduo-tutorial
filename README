@@ -11,7 +11,7 @@ cd bazel
 bazel build -c opt :all
 
 2) build with CMake with git submodule
-git submodule update
+git submodule update --init
 mkdir build
 cd build
 cmake ../cmake-submodule
