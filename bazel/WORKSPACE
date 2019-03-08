@@ -1,0 +1,10 @@
+workspace(name = "com_chenshuo_muduo_tutorial")
+
+load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
+
+# muduo
+http_archive(
+    name = "muduo",
+    strip_prefix = "muduo-master",
+    urls = ["https://github.com/chenshuo/muduo/archive/master.zip"],
+)

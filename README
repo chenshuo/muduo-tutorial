@@ -1,19 +1,32 @@
 Examples of Muduo network library
 
-src      - source file
-makefile - build with Makefile
-cmake    - build with CMake
+0) src             - source file
+1) bazel           - build with Bazel
+2) cmake-submodule - build with CMake, checking out muduo as a git submodule
+3) cmake           - build with CMake
+2) makefile        - build with Makefile
 
-assuming Muduo is installed in $HOME/build/debug-install
+1) build with bazel
+cd bazel
+bazel build -c opt :all
 
-1) build with CMake
+2) build with CMake with git submodule
+git submodule update
+mkdir build
+cd build
+cmake ../cmake-submodule
+make
+
+Assuming Muduo is installed in $HOME/build/debug-install
+
+3) build with CMake
 mkdir build
 cd build
 cmake ../cmake
 make
 # echo binary is in ./bin/
 
-2) build with GNU make
+4) build with GNU make
 cd makefile
 make
 # echo binary is in ./

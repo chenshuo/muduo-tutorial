@@ -1,13 +1,12 @@
-#include <muduo/net/TcpServer.h>
+#include "muduo/net/TcpServer.h"
 
-#include <muduo/base/AsyncLogging.h>
-#include <muduo/base/Logging.h>
-#include <muduo/base/Thread.h>
-#include <muduo/net/EventLoop.h>
-#include <muduo/net/InetAddress.h>
+#include "muduo/base/AsyncLogging.h"
+#include "muduo/base/Logging.h"
+#include "muduo/base/Thread.h"
+#include "muduo/net/EventLoop.h"
+#include "muduo/net/InetAddress.h"
 
-#include <boost/bind.hpp>
-
+#include <functional>
 #include <utility>
 
 #include <stdio.h>
@@ -24,9 +23,9 @@ class EchoServer
       server_(loop, listenAddr, "EchoServer")
   {
     server_.setConnectionCallback(
-        boost::bind(&EchoServer::onConnection, this, _1));
+        std::bind(&EchoServer::onConnection, this, _1));
     server_.setMessageCallback(
-        boost::bind(&EchoServer::onMessage, this, _1, _2, _3));
+        std::bind(&EchoServer::onMessage, this, _1, _2, _3));
   }
 
   void start()
@@ -59,7 +58,7 @@ void EchoServer::onMessage(const TcpConnectionPtr& conn, Buffer* buf, Timestamp 
 
 int kRollSize = 500*1000*1000;
 
-boost::scoped_ptr<muduo::AsyncLogging> g_asyncLog;
+std::unique_ptr<muduo::AsyncLogging> g_asyncLog;
 
 void asyncOutput(const char* msg, int len)
 {

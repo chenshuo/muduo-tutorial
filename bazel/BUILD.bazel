@@ -1,0 +1,7 @@
+cc_binary(
+    name = "echo",
+    srcs = ["echo.cc"],
+    deps = [
+        "@muduo//muduo/net",
+    ],
+)
