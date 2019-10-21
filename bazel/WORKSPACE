@@ -1,10 +1,11 @@
 workspace(name = "com_chenshuo_muduo_tutorial")
 
-load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
+load("@bazel_tools//tools/build_defs/repo:git.bzl", "git_repository")
 
 # muduo
-http_archive(
+git_repository(
     name = "muduo",
-    strip_prefix = "muduo-master",
-    urls = ["https://github.com/chenshuo/muduo/archive/master.zip"],
+    commit = "0edc4c9ddfaeecbede71229673eefc48bcb6fe8c",
+    remote = "https://github.com/chenshuo/muduo",
+    shallow_since = "1567382400 -0700", #unix timestamp
 )
